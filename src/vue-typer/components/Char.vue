@@ -1,6 +1,5 @@
-<template lang='pug'>
-span.char(:class="classes")
-  | {{ val }}
+<template>
+  <span class="char" :class="classes">{{ val }}</span>
 </template>
 
 <script>
@@ -8,21 +7,21 @@ export default {
   props: {
     val: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   computed: {
     classes() {
       return {
-        'newline': this.val.indexOf('\n') === 0
-      }
-    }
-  }
-}
+        newline: this.val.indexOf("\n") === 0,
+      };
+    },
+  },
+};
 </script>
 
-<style scoped lang='scss'>
-@import '../styles/typer-colors.scss';
+<style scoped lang="scss">
+@import "../styles/typer-colors.scss";
 
 .char {
   display: inline-block;

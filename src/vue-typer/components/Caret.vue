@@ -1,9 +1,9 @@
-<template lang='pug'>
-span.caret.custom(:class='animationClass')
+<template>
+  <span class="caret custom" :class="animationClass"></span>
 </template>
 
 <script>
-const ANIMATION_CLASS_PREFIX = 'vue-typer-caret-'
+const ANIMATION_CLASS_PREFIX = "vue-typer-caret-";
 
 export default {
   props: {
@@ -12,25 +12,26 @@ export default {
      */
     animation: {
       type: String,
-      default: 'blink',
-      validator: value => /^solid$|^blink$|^smooth$|^phase$|^expand$/.test(value)
-    }
+      default: "blink",
+      validator: (value) =>
+        /^solid$|^blink$|^smooth$|^phase$|^expand$/.test(value),
+    },
   },
   computed: {
     animationClass() {
-      return ANIMATION_CLASS_PREFIX + this.animation
-    }
-  }
-}
+      return ANIMATION_CLASS_PREFIX + this.animation;
+    },
+  },
+};
 </script>
 
-<style scoped lang='scss'>
-@import '../styles/typer-colors.scss';
-@import '../styles/caret-animations.scss';
+<style scoped lang="scss">
+@import "../styles/typer-colors.scss";
+@import "../styles/caret-animations.scss";
 
 span.caret {
   &:empty:before {
-    content: '\200b'; // zero width space character
+    content: "\200b"; // zero width space character
   }
 }
 

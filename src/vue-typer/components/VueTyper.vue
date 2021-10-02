@@ -1,17 +1,26 @@
-<template lang="pug">
-//-
-  Ideally we'd just have span.left and span.right contain all the chars to the left and
-  right of the caret, but line-wrapping becomes tricky on some browsers (FF/IE/Edge).
-  Until we can find a solution for this, we just create one span per character.
-span.vue-typer
-  span.left
-    char.custom.typed(v-for='l in numLeftChars',
-                      :val="currentTextArray[l-1]")
-  caret(:class='caretClasses', :animation='caretAnimation')
-  span.right
-    char.custom(v-for='r in numRightChars',
-                :val="currentTextArray[numLeftChars + r-1]",
-                :class='rightCharClasses')
+<template>
+  <!-- //- Ideally we'd just have span.left and span.right contain all the chars to
+  the left and right of the caret, but line-wrapping becomes tricky on some
+  browsers (FF/IE/Edge). Until we can find a solution for this, we just create
+  one span per character. -->
+  <span class="vue-typer"
+    ><span class="left">
+      <char
+        class="custom typed"
+        v-for="l in numLeftChars"
+        :val="currentTextArray[l - 1]"
+      ></char>
+    </span>
+    <caret :class="caretClasses" :animation="caretAnimation"></caret
+    ><span class="right">
+      <char
+        class="custom"
+        v-for="r in numRightChars"
+        :val="currentTextArray[numLeftChars + r - 1]"
+        :class="rightCharClasses"
+      ></char>
+    </span>
+  </span>
 </template>
 
 <script>
