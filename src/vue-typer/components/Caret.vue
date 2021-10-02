@@ -1,7 +1,3 @@
-<template>
-  <span class="caret custom" :class="animationClass"></span>
-</template>
-
 <script>
 const ANIMATION_CLASS_PREFIX = "vue-typer-caret-";
 
@@ -24,6 +20,10 @@ export default {
   },
 };
 </script>
+
+<template>
+  <span class="caret custom" :class="animationClass"></span>
+</template>
 
 <style scoped lang="scss">
 @import "../styles/typer-colors.scss";

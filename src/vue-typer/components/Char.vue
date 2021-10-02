@@ -1,7 +1,3 @@
-<template>
-  <span class="char" :class="classes">{{ val }}</span>
-</template>
-
 <script>
 export default {
   props: {
@@ -19,6 +15,10 @@ export default {
   },
 };
 </script>
+
+<template>
+  <span class="char" :class="classes">{{ val }}</span>
+</template>
 
 <style scoped lang="scss">
 @import "../styles/typer-colors.scss";
