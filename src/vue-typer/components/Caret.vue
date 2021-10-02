@@ -1,24 +1,18 @@
-<script>
+<script setup>
+import { defineProps, computed } from "vue";
+
 const ANIMATION_CLASS_PREFIX = "vue-typer-caret-";
 
-export default {
-  props: {
-    /**
-     * Caret animation similar to Sublime and VSCode: 'solid', 'blink', 'smooth', 'phase', 'expand'.
-     */
-    animation: {
-      type: String,
-      default: "blink",
-      validator: (value) =>
-        /^solid$|^blink$|^smooth$|^phase$|^expand$/.test(value),
-    },
+const props = defineProps({
+  animation: {
+    type: String,
+    default: "blink",
+    validator: (value) =>
+      /^solid$|^blink$|^smooth$|^phase$|^expand$/.test(value),
   },
-  computed: {
-    animationClass() {
-      return ANIMATION_CLASS_PREFIX + this.animation;
-    },
-  },
-};
+});
+
+const animationClass = computed(() => ANIMATION_CLASS_PREFIX + props.animation);
 </script>
 
 <template>

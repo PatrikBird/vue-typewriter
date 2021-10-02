@@ -1,19 +1,16 @@
-<script>
-export default {
-  props: {
-    val: {
-      type: String,
-      default: "",
-    },
+<script setup>
+import { defineProps, computed } from "vue";
+
+const props = defineProps({
+  val: {
+    type: String,
+    default: "",
   },
-  computed: {
-    classes() {
-      return {
-        newline: this.val.indexOf("\n") === 0,
-      };
-    },
-  },
-};
+});
+
+const classes = computed(() => {
+  return { newline: props.val.indexOf("\n") === 0 };
+});
 </script>
 
 <template>
