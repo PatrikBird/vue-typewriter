@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 
 const ANIMATION_CLASS_PREFIX = "vue-typer-caret-";
 
